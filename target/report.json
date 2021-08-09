@@ -1,0 +1,271 @@
+[
+  {
+    "line": 4,
+    "elements": [
+      {
+        "start_timestamp": "2021-08-06T20:49:18.030Z",
+        "line": 7,
+        "name": "Validar busca de veículo desejado",
+        "description": "",
+        "id": "login;validar-busca-de-veículo-desejado",
+        "type": "scenario",
+        "keyword": "Cenário",
+        "steps": [
+          {
+            "result": {
+              "duration": 8086000000,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "que o usuário esteja no sistema do webmotors",
+            "match": {
+              "location": "steps.MyStep.acessSystem()"
+            },
+            "keyword": "Dado "
+          },
+          {
+            "result": {
+              "duration": 1145000000,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "informar o nome do veículo desejado",
+            "match": {
+              "location": "steps.MyStep.searchVehicle()"
+            },
+            "keyword": "Quando "
+          },
+          {
+            "result": {
+              "duration": 15097000000,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "selecionar a opção do modelo",
+            "match": {
+              "location": "steps.MyStep.selectionOption()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "duration": 71000000,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "o sistema direciona o usuário para a tela de listagem dos veículos disponíveis para venda",
+            "match": {
+              "location": "steps.MyStep.modalLogin()"
+            },
+            "keyword": "Então "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@webMotors"
+          },
+          {
+            "name": "@ct01"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2021-08-06T20:49:42.481Z",
+        "line": 14,
+        "name": "Validar seleção do veículo desejado",
+        "description": "",
+        "id": "login;validar-seleção-do-veículo-desejado",
+        "type": "scenario",
+        "keyword": "Cenário",
+        "steps": [
+          {
+            "result": {
+              "duration": 8531000000,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "que o usuário esteja no sistema do webmotors",
+            "match": {
+              "location": "steps.MyStep.acessSystem()"
+            },
+            "keyword": "Dado "
+          },
+          {
+            "result": {
+              "duration": 1295000000,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "informar o nome do veículo desejado",
+            "match": {
+              "location": "steps.MyStep.searchVehicle()"
+            },
+            "keyword": "Quando "
+          },
+          {
+            "result": {
+              "duration": 15102000000,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "selecionar a opção do modelo",
+            "match": {
+              "location": "steps.MyStep.selectionOption()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "duration": 1672000000,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "selecionar o veículo desejado",
+            "match": {
+              "location": "steps.MyStep.selectionOptionVehicle()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "duration": 229000000,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "o sistema direciona o usuário para a tela de detalhes do veículo",
+            "match": {
+              "location": "steps.MyStep.screenDetailsVehicle()"
+            },
+            "keyword": "Então "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@webMotors"
+          },
+          {
+            "name": "@ct02"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2021-08-06T20:50:09.313Z",
+        "line": 22,
+        "name": "Validar o contato para negociação com os vendedores",
+        "description": "",
+        "id": "login;validar-o-contato-para-negociação-com-os-vendedores",
+        "type": "scenario",
+        "keyword": "Cenário",
+        "steps": [
+          {
+            "result": {
+              "duration": 9224000000,
+              "status": "passed"
+            },
+            "line": 23,
+            "name": "que o usuário esteja no sistema do webmotors",
+            "match": {
+              "location": "steps.MyStep.acessSystem()"
+            },
+            "keyword": "Dado "
+          },
+          {
+            "result": {
+              "duration": 1168000000,
+              "status": "passed"
+            },
+            "line": 24,
+            "name": "informar o nome do veículo desejado",
+            "match": {
+              "location": "steps.MyStep.searchVehicle()"
+            },
+            "keyword": "Quando "
+          },
+          {
+            "result": {
+              "duration": 15119000000,
+              "status": "passed"
+            },
+            "line": 25,
+            "name": "selecionar a opção do modelo",
+            "match": {
+              "location": "steps.MyStep.selectionOption()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "duration": 1657000000,
+              "status": "passed"
+            },
+            "line": 26,
+            "name": "selecionar o veículo desejado",
+            "match": {
+              "location": "steps.MyStep.selectionOptionVehicle()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "duration": 842000000,
+              "status": "passed"
+            },
+            "line": 27,
+            "name": "preencher o formulário com dados válidos",
+            "match": {
+              "location": "steps.MyStep.formComplete()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "duration": 4448000000,
+              "status": "passed"
+            },
+            "line": 28,
+            "name": "clicar na opção de Enviar mensagem",
+            "match": {
+              "location": "steps.MyStep.optionProposal()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "duration": 428000000,
+              "status": "passed"
+            },
+            "line": 29,
+            "name": "o sistema envia a menasagem ao vendedor e retorna o usuário para a tela de listagem de veículos",
+            "match": {
+              "location": "steps.MyStep.messageSucess()"
+            },
+            "keyword": "Então "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@webMotors"
+          },
+          {
+            "name": "@ct03"
+          }
+        ]
+      }
+    ],
+    "name": "Login",
+    "description": "",
+    "id": "login",
+    "keyword": "Funcionalidade",
+    "uri": "classpath:features/MyTest.feature",
+    "tags": [
+      {
+        "name": "@webMotors",
+        "type": "Tag",
+        "location": {
+          "line": 3,
+          "column": 1
+        }
+      }
+    ]
+  }
+]

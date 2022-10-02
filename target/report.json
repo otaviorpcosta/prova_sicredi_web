@@ -3,21 +3,21 @@
     "line": 4,
     "elements": [
       {
-        "start_timestamp": "2021-08-06T20:49:18.030Z",
-        "line": 7,
-        "name": "Validar busca de veículo desejado",
+        "start_timestamp": "2022-10-02T23:30:05.551Z",
+        "line": 17,
+        "name": "Validar inclusão de novo customer",
         "description": "",
-        "id": "login;validar-busca-de-veículo-desejado",
+        "id": "cadastro-de-customer;validar-inclusão-de-novo-customer;;2",
         "type": "scenario",
-        "keyword": "Cenário",
+        "keyword": "Esquema do Cenário",
         "steps": [
           {
             "result": {
-              "duration": 8086000000,
+              "duration": 6162000000,
               "status": "passed"
             },
             "line": 8,
-            "name": "que o usuário esteja no sistema do webmotors",
+            "name": "que o usuário esteja no sistema do grocerycrud",
             "match": {
               "location": "steps.MyStep.acessSystem()"
             },
@@ -25,23 +25,23 @@
           },
           {
             "result": {
-              "duration": 1145000000,
+              "duration": 2571000000,
               "status": "passed"
             },
             "line": 9,
-            "name": "informar o nome do veículo desejado",
+            "name": "alterar a versão do crud para Boostra V4 Theme",
             "match": {
-              "location": "steps.MyStep.searchVehicle()"
+              "location": "steps.MyStep.updatedVersion()"
             },
             "keyword": "Quando "
           },
           {
             "result": {
-              "duration": 15097000000,
+              "duration": 1466000000,
               "status": "passed"
             },
             "line": 10,
-            "name": "selecionar a opção do modelo",
+            "name": "clicar na opção de adicionar customer",
             "match": {
               "location": "steps.MyStep.selectionOption()"
             },
@@ -49,11 +49,85 @@
           },
           {
             "result": {
-              "duration": 71000000,
+              "duration": 581000000,
               "status": "passed"
             },
             "line": 11,
-            "name": "o sistema direciona o usuário para a tela de listagem dos veículos disponíveis para venda",
+            "name": "preencher dados de \"Teste Sicredi\", \"Teste\", \"Juliano\", \"51 9999-9999\", \"Av Assis Brasil, 3970\", \"Torre D\", \"Porto Alegre\", \"RS\", \"91000-000\", \"Brasil\", \"10\", \"200\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Teste Sicredi\"",
+                  "offset": 19
+                },
+                {
+                  "val": "\"Teste\"",
+                  "offset": 36
+                },
+                {
+                  "val": "\"Juliano\"",
+                  "offset": 45
+                },
+                {
+                  "val": "\"51 9999-9999\"",
+                  "offset": 56
+                },
+                {
+                  "val": "\"Av Assis Brasil, 3970\"",
+                  "offset": 72
+                },
+                {
+                  "val": "\"Torre D\"",
+                  "offset": 97
+                },
+                {
+                  "val": "\"Porto Alegre\"",
+                  "offset": 108
+                },
+                {
+                  "val": "\"RS\"",
+                  "offset": 124
+                },
+                {
+                  "val": "\"91000-000\"",
+                  "offset": 130
+                },
+                {
+                  "val": "\"Brasil\"",
+                  "offset": 143
+                },
+                {
+                  "val": "\"10\"",
+                  "offset": 153
+                },
+                {
+                  "val": "\"200\"",
+                  "offset": 159
+                }
+              ],
+              "location": "steps.MyStep.fillDate(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "duration": 4314000000,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "clicar na opção de Save",
+            "match": {
+              "location": "steps.MyStep.selectionOptionSave()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "duration": 718000000,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "o sistema exibe mensagem informando Your data has been successfully stored into the database. Edit Record or Go back to list",
             "match": {
               "location": "steps.MyStep.modalLogin()"
             },
@@ -62,7 +136,7 @@
         ],
         "tags": [
           {
-            "name": "@webMotors"
+            "name": "@sicredWeb"
           },
           {
             "name": "@ct01"
@@ -70,21 +144,21 @@
         ]
       },
       {
-        "start_timestamp": "2021-08-06T20:49:42.481Z",
-        "line": 14,
-        "name": "Validar seleção do veículo desejado",
+        "start_timestamp": "2022-10-02T23:30:21.433Z",
+        "line": 34,
+        "name": "Validar exclusão de novo customer",
         "description": "",
-        "id": "login;validar-seleção-do-veículo-desejado",
+        "id": "cadastro-de-customer;validar-exclusão-de-novo-customer;;2",
         "type": "scenario",
-        "keyword": "Cenário",
+        "keyword": "Esquema do Cenário",
         "steps": [
           {
             "result": {
-              "duration": 8531000000,
+              "duration": 4864000000,
               "status": "passed"
             },
-            "line": 15,
-            "name": "que o usuário esteja no sistema do webmotors",
+            "line": 21,
+            "name": "que o usuário esteja no sistema do grocerycrud",
             "match": {
               "location": "steps.MyStep.acessSystem()"
             },
@@ -92,23 +166,23 @@
           },
           {
             "result": {
-              "duration": 1295000000,
+              "duration": 2604000000,
               "status": "passed"
             },
-            "line": 16,
-            "name": "informar o nome do veículo desejado",
+            "line": 22,
+            "name": "alterar a versão do crud para Boostra V4 Theme",
             "match": {
-              "location": "steps.MyStep.searchVehicle()"
+              "location": "steps.MyStep.updatedVersion()"
             },
             "keyword": "Quando "
           },
           {
             "result": {
-              "duration": 15102000000,
+              "duration": 1313000000,
               "status": "passed"
             },
-            "line": 17,
-            "name": "selecionar a opção do modelo",
+            "line": 23,
+            "name": "clicar na opção de adicionar customer",
             "match": {
               "location": "steps.MyStep.selectionOption()"
             },
@@ -116,150 +190,163 @@
           },
           {
             "result": {
-              "duration": 1672000000,
+              "duration": 642000000,
               "status": "passed"
             },
-            "line": 18,
-            "name": "selecionar o veículo desejado",
+            "line": 24,
+            "name": "preencher dados de \"Teste Sicredi\", \"Teste\", \"Juliano\", \"51 9999-9999\", \"Av Assis Brasil, 3970\", \"Torre D\", \"Porto Alegre\", \"RS\", \"91000-000\", \"Brasil\", \"10\", \"200\"",
             "match": {
-              "location": "steps.MyStep.selectionOptionVehicle()"
+              "arguments": [
+                {
+                  "val": "\"Teste Sicredi\"",
+                  "offset": 19
+                },
+                {
+                  "val": "\"Teste\"",
+                  "offset": 36
+                },
+                {
+                  "val": "\"Juliano\"",
+                  "offset": 45
+                },
+                {
+                  "val": "\"51 9999-9999\"",
+                  "offset": 56
+                },
+                {
+                  "val": "\"Av Assis Brasil, 3970\"",
+                  "offset": 72
+                },
+                {
+                  "val": "\"Torre D\"",
+                  "offset": 97
+                },
+                {
+                  "val": "\"Porto Alegre\"",
+                  "offset": 108
+                },
+                {
+                  "val": "\"RS\"",
+                  "offset": 124
+                },
+                {
+                  "val": "\"91000-000\"",
+                  "offset": 130
+                },
+                {
+                  "val": "\"Brasil\"",
+                  "offset": 143
+                },
+                {
+                  "val": "\"10\"",
+                  "offset": 153
+                },
+                {
+                  "val": "\"200\"",
+                  "offset": 159
+                }
+              ],
+              "location": "steps.MyStep.fillDate(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)"
             },
             "keyword": "E "
           },
           {
             "result": {
-              "duration": 229000000,
+              "duration": 2904000000,
               "status": "passed"
             },
-            "line": 19,
-            "name": "o sistema direciona o usuário para a tela de detalhes do veículo",
+            "line": 25,
+            "name": "clicar na opção de Save and go back to list",
             "match": {
-              "location": "steps.MyStep.screenDetailsVehicle()"
+              "location": "steps.MyStep.selectionOptionSaveAndaBack()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "duration": 109000000,
+              "status": "passed"
+            },
+            "line": 26,
+            "name": "buscar o \"Teste Sicredi\" cadastrado no campo de busca por CustomerName",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Teste Sicredi\"",
+                  "offset": 9
+                }
+              ],
+              "location": "steps.MyStep.searchCustomerName(java.lang.String)"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "duration": 1615000000,
+              "status": "passed"
+            },
+            "line": 27,
+            "name": "clicar no checkbox de selecionar todos os resultados e clicar na opção de Delete",
+            "match": {
+              "location": "steps.MyStep.selectedAll()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "duration": 47000000,
+              "status": "passed"
+            },
+            "line": 28,
+            "name": "validar o modal exibido com a mensagem Are you sure that you want to delete this X item?",
+            "match": {
+              "location": "steps.MyStep.modalTilte()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "duration": 74000000,
+              "status": "passed"
+            },
+            "line": 29,
+            "name": "clicar na opção delete do modal exibido",
+            "match": {
+              "location": "steps.MyStep.buttonDeleteModal()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "duration": 2193000000,
+              "status": "passed"
+            },
+            "line": 30,
+            "name": "o sistema exibe mensagem informando Your data hasbeen successfully deleted from the database.",
+            "match": {
+              "location": "steps.MyStep.messagemAlert()"
             },
             "keyword": "Então "
           }
         ],
         "tags": [
           {
-            "name": "@webMotors"
+            "name": "@sicredWeb"
           },
           {
             "name": "@ct02"
           }
         ]
-      },
-      {
-        "start_timestamp": "2021-08-06T20:50:09.313Z",
-        "line": 22,
-        "name": "Validar o contato para negociação com os vendedores",
-        "description": "",
-        "id": "login;validar-o-contato-para-negociação-com-os-vendedores",
-        "type": "scenario",
-        "keyword": "Cenário",
-        "steps": [
-          {
-            "result": {
-              "duration": 9224000000,
-              "status": "passed"
-            },
-            "line": 23,
-            "name": "que o usuário esteja no sistema do webmotors",
-            "match": {
-              "location": "steps.MyStep.acessSystem()"
-            },
-            "keyword": "Dado "
-          },
-          {
-            "result": {
-              "duration": 1168000000,
-              "status": "passed"
-            },
-            "line": 24,
-            "name": "informar o nome do veículo desejado",
-            "match": {
-              "location": "steps.MyStep.searchVehicle()"
-            },
-            "keyword": "Quando "
-          },
-          {
-            "result": {
-              "duration": 15119000000,
-              "status": "passed"
-            },
-            "line": 25,
-            "name": "selecionar a opção do modelo",
-            "match": {
-              "location": "steps.MyStep.selectionOption()"
-            },
-            "keyword": "E "
-          },
-          {
-            "result": {
-              "duration": 1657000000,
-              "status": "passed"
-            },
-            "line": 26,
-            "name": "selecionar o veículo desejado",
-            "match": {
-              "location": "steps.MyStep.selectionOptionVehicle()"
-            },
-            "keyword": "E "
-          },
-          {
-            "result": {
-              "duration": 842000000,
-              "status": "passed"
-            },
-            "line": 27,
-            "name": "preencher o formulário com dados válidos",
-            "match": {
-              "location": "steps.MyStep.formComplete()"
-            },
-            "keyword": "E "
-          },
-          {
-            "result": {
-              "duration": 4448000000,
-              "status": "passed"
-            },
-            "line": 28,
-            "name": "clicar na opção de Enviar mensagem",
-            "match": {
-              "location": "steps.MyStep.optionProposal()"
-            },
-            "keyword": "E "
-          },
-          {
-            "result": {
-              "duration": 428000000,
-              "status": "passed"
-            },
-            "line": 29,
-            "name": "o sistema envia a menasagem ao vendedor e retorna o usuário para a tela de listagem de veículos",
-            "match": {
-              "location": "steps.MyStep.messageSucess()"
-            },
-            "keyword": "Então "
-          }
-        ],
-        "tags": [
-          {
-            "name": "@webMotors"
-          },
-          {
-            "name": "@ct03"
-          }
-        ]
       }
     ],
-    "name": "Login",
+    "name": "Cadastro de Customer",
     "description": "",
-    "id": "login",
+    "id": "cadastro-de-customer",
     "keyword": "Funcionalidade",
     "uri": "classpath:features/MyTest.feature",
     "tags": [
       {
-        "name": "@webMotors",
+        "name": "@sicredWeb",
         "type": "Tag",
         "location": {
           "line": 3,

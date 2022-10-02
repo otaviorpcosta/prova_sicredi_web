@@ -4,19 +4,20 @@ import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.E;
 import io.cucumber.java.pt.Então;
 import io.cucumber.java.pt.Quando;
+import org.junit.AfterClass;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+import java.util.Arrays;
+import java.util.concurrent.TimeUnit;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class MyStep {
 
@@ -24,100 +25,135 @@ public class MyStep {
 
     /////// CT01 /////////
 
-    @Dado("que o usuário esteja no sistema do webmotors")
+    @Dado("que o usuário esteja no sistema do grocerycrud")
     public void acessSystem() {
-        driver = new ChromeDriver();
-        System.setProperty("webdriver.chrome.driver", "/Users/usertqi/Documents/workspace/webMotorsWeb/chromedriver");
-        driver.get("https://www.webmotors.com.br/");
+
+        WebDriverManager.chromedriver().setup();
+
+        ChromeOptions optionsC = new ChromeOptions();
+        optionsC.addArguments(Arrays.asList("disable-infobars", "ignore-certificate-errors",
+                "disable-popup-blocking", "disable-notifications", "no-sandbox"));
+        driver = new ChromeDriver(optionsC);
         driver.manage().window().maximize();
-    }
-
-    @Quando("informar o nome do veículo desejado")
-    public void searchVehicle() throws InterruptedException {
-
-        driver.findElement(By.id("searchBar")).click();
-        driver.findElement(By.id("searchBar")).sendKeys("Onix");
-
-        Thread.sleep(1000);
+        driver.get("https://www.grocerycrud.com/v1.x/demo/my_boss_is_in_a_hurry/bootstrap");
 
     }
 
-    @E("selecionar a opção do modelo")
+    @Quando("alterar a versão do crud para Boostra V4 Theme")
+    public void updatedVersion(){
+
+        driver.findElement(By.xpath("//option[@value='/v1.x/demo/my_boss_is_in_a_hurry/bootstrap-v4']")).click();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    }
+    @E("clicar na opção de adicionar customer")
     public void selectionOption() throws InterruptedException {
 
-        driver.findElement(By.xpath("/html/body/div[1]/main/div[2]/div/div[1]/div[2]/div/div/div/div/div/div[2]/a[2]/div[2]")).click();
-        Thread.sleep(15000);
+        driver.findElement(By.xpath("//div[@class='floatL t5']/a")).click();
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='table-label']/div[1]")));
     }
+    @E("preencher dados de {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
+    public void fillDate(String Name, String LastName, String ContactFirstName, String Phone, String AddressLine1, String AddressLine2, String City, String State, String PostalCode, String Country, String Employeer, String CreditLimit) throws InterruptedException {
 
-    @Então("o sistema direciona o usuário para a tela de listagem dos veículos disponíveis para venda")
+        driver.findElement(By.id("field-customerName")).sendKeys(Name);
+        driver.findElement(By.id("field-contactLastName")).sendKeys(LastName);
+        driver.findElement(By.id("field-contactFirstName")).sendKeys(ContactFirstName);
+        driver.findElement(By.id("field-phone")).sendKeys(Phone);
+        driver.findElement(By.id("field-addressLine1")).sendKeys(AddressLine1);
+        driver.findElement(By.id("field-addressLine2")).sendKeys(AddressLine2);
+        driver.findElement(By.id("field-city")).sendKeys(City);
+        driver.findElement(By.id("field-state")).sendKeys(State);
+        driver.findElement(By.id("field-postalCode")).sendKeys(PostalCode);
+        driver.findElement(By.id("field-country")).sendKeys(Country);
+        driver.findElement(By.id("field-salesRepEmployeeNumber")).sendKeys(Employeer);
+        driver.findElement(By.id("field-creditLimit")).sendKeys(CreditLimit);
+
+    }
+    @E("clicar na opção de Save")
+    public void selectionOptionSave() throws InterruptedException {
+
+        driver.findElement(By.id("form-button-save")).click();
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("report-success")));
+
+    }
+    @Então("o sistema exibe mensagem informando Your data has been successfully stored into the database. Edit Record or Go back to list")
     public void modalLogin() {
 
-        Boolean confirmationSubTitle = driver.findElement(By.className("title-search")).isDisplayed();
-        Assert.assertEquals(true, confirmationSubTitle);
+        String confirmationMessageSucess= driver.findElement((By.xpath("//div[@id='report-success']/p"))).getText();
+        Assert.assertEquals("Your data has been successfully stored into the database. Edit Record or Go back to list", confirmationMessageSucess);
 
-        Boolean confirmationResults = driver.findElement(By.cssSelector("div[data-test-id='found-ads']")).isEnabled();
-        Assert.assertEquals(true, confirmationResults);
+        tearDown();
 
     }
 
     /////// CT02 /////////
 
-    @E("selecionar o veículo desejado")
+    @E("clicar na opção de Save and go back to list")
+    public void selectionOptionSaveAndaBack() throws InterruptedException {
 
-    public void selectionOptionVehicle() throws InterruptedException {
+        driver.findElement(By.id("save-and-go-back-button")).click();
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='floatL t5']/a")));
 
-        driver.findElement(By.xpath("/html/body/div[1]/main/div[1]/div[3]/div[2]/div/div[1]/div/div[1]/div/div[2]")).click();
-        Thread.sleep(1500);
+    }
+    @E("buscar o {string} cadastrado no campo de busca por CustomerName")
+    public void searchCustomerName(String Name) {
+
+        driver.findElement(By.xpath("//input[@name='customerName']")).sendKeys(Name);
+        driver.findElement(By.xpath("//a[@class='btn btn-default btn-outline-dark gc-refresh']")).click();
+
+    }
+    @E("clicar no checkbox de selecionar todos os resultados e clicar na opção de Delete")
+    public void selectedAll() throws InterruptedException {
+
+        Thread.sleep(1000);
+        driver.findElement(By.xpath("//input[@class='select-all-none']")).click();
+        driver.findElement(By.xpath("//a[@title='Delete']")).click();
+
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@class='btn btn-danger delete-multiple-confirmation-button']")));
     }
 
-    @Então("o sistema direciona o usuário para a tela de detalhes do veículo")
-    public void screenDetailsVehicle() {
+    @E("validar o modal exibido com a mensagem Are you sure that you want to delete this X item?")
+    public void modalTilte() {
 
-        for(String winHandle : driver.getWindowHandles()){
-            driver.switchTo().window(winHandle);
+        String itemsAmount = driver.findElement(By.xpath("//span[@class='delete-items-amount']")).getText();
+
+        if ("2".equals(itemsAmount)) {
+            String alertDelete = driver.findElement(By.xpath("//p[@class='alert-delete-multiple']")).getText();
+            Assert.assertEquals("Are you sure that you want to delete those " + itemsAmount + " items?", alertDelete);
+        }
+        else {
+            String alertDeleteOneItem = driver.findElement(By.xpath("//p[@class='alert-delete-multiple-one']")).getText();
+            Assert.assertEquals("Are you sure that you want to delete this 1 item?", alertDeleteOneItem);
         }
 
-        String confirmationSubTitle = driver.findElement(By.className("explanation-financing__info__title")).getText();
-        Assert.assertEquals("Simule seu financiamento sem compromisso!", confirmationSubTitle);
+    }
+    @E("clicar na opção delete do modal exibido")
+    public void buttonDeleteModal() throws InterruptedException {
 
-        Boolean confirmationOption = driver.findElement(By.className("modal--close")).isEnabled();
-        Assert.assertEquals(true, confirmationOption);
+        driver.findElement(By.xpath("//button[@class='btn btn-danger delete-multiple-confirmation-button']")).click();
 
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@class='btn btn-danger delete-multiple-confirmation-button']")));
+    }
+    @E("o sistema exibe mensagem informando Your data hasbeen successfully deleted from the database.")
+    public void messagemAlert() {
+
+        WebDriverWait wait = new WebDriverWait(driver, 100);
+        WebElement el = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='alert alert-success growl-animated animated bounceInDown']/span[@data-growl='message']/p")));
+        String message = el.getText();
+
+        Assert.assertEquals("Your data has been successfully deleted from the database.", message);
+        tearDown();
     }
 
-    /////// CT03 /////////
-
-    @E("preencher o formulário com dados válidos")
-    public void formComplete() throws InterruptedException {
-
-        for(String winHandle : driver.getWindowHandles()){
-            driver.switchTo().window(winHandle);
-        }
-
-        driver.findElement(By.className("modal--close")).click();
-        driver.findElement(By.xpath("/html/body/div[1]/main/div[2]/div[2]/div/div/div/div/div/form/div/div[1]/input")).sendKeys("Teste Webmotors");
-        driver.findElement(By.xpath("/html/body/div[1]/main/div[2]/div[2]/div/div/div/div/div/form/div/div[2]/input")).sendKeys("teste@gmail.com");
-        driver.findElement(By.xpath("/html/body/div[1]/main/div[2]/div[2]/div/div/div/div/div/form/div/div[3]/input")).sendKeys("34991060500");
+    @AfterClass()
+    protected void tearDown() {
+        driver.quit();
+        driver = null;
     }
-
-    @E("clicar na opção de Enviar mensagem")
-    public void optionProposal() throws InterruptedException {
-
-        driver.findElement(By.xpath("/html/body/div[1]/main/div[2]/div[2]/div/div/div/div/div/button[2]")).click();
-        Thread.sleep(4000);
-    }
-
-    @Então("o sistema envia a menasagem ao vendedor e retorna o usuário para a tela de listagem de veículos")
-    public void messageSucess() {
-
-        Boolean confirmationSubTitle = driver.findElement(By.className("title-search")).isDisplayed();
-        Assert.assertEquals(true, confirmationSubTitle);
-
-        Boolean confirmationResults = driver.findElement(By.cssSelector("div[data-test-id='found-ads']")).isEnabled();
-        Assert.assertEquals(true, confirmationResults);
-
-    }
-
 }
 
 
